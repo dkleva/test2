@@ -1,0 +1,20 @@
+TARGETS = rsyslog uuidd lvm2-lvmetad lxcfs lvm2-lvmpolld open-vm-tools lxd unattended-upgrades killprocs wd_keepalive apport postgresql irqbalance qemu-guest-agent atd mdadm single ntp rsync acpid dbus cron ssh nginx plymouth watchdog rc.local grub-common ondemand
+INTERACTIVE =
+postgresql: rsyslog
+irqbalance: rsyslog
+qemu-guest-agent: rsyslog
+atd: rsyslog
+mdadm: rsyslog
+single: killprocs
+ntp: rsyslog
+rsync: rsyslog
+acpid: rsyslog
+dbus: rsyslog
+cron: rsyslog
+ssh: rsyslog
+nginx: rsyslog
+plymouth: rsyslog postgresql irqbalance qemu-guest-agent uuidd atd lvm2-lvmetad lxcfs lvm2-lvmpolld open-vm-tools mdadm lxd unattended-upgrades ntp rsync acpid dbus wd_keepalive apport cron ssh nginx
+watchdog: rsyslog postgresql irqbalance qemu-guest-agent uuidd atd lvm2-lvmetad lxcfs lvm2-lvmpolld open-vm-tools mdadm lxd unattended-upgrades ntp rsync acpid dbus wd_keepalive apport cron ssh nginx
+rc.local: rsyslog postgresql irqbalance qemu-guest-agent uuidd atd lvm2-lvmetad lxcfs lvm2-lvmpolld open-vm-tools mdadm lxd unattended-upgrades ntp rsync acpid dbus wd_keepalive apport cron ssh nginx
+grub-common: rsyslog postgresql irqbalance qemu-guest-agent uuidd atd lvm2-lvmetad lxcfs lvm2-lvmpolld open-vm-tools mdadm lxd unattended-upgrades ntp rsync acpid dbus wd_keepalive apport cron ssh nginx
+ondemand: rsyslog postgresql irqbalance qemu-guest-agent uuidd atd lvm2-lvmetad lxcfs lvm2-lvmpolld open-vm-tools mdadm lxd unattended-upgrades ntp rsync acpid dbus wd_keepalive apport cron ssh nginx

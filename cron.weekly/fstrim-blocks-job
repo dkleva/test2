@@ -1,0 +1,5 @@
+#!/bin/bash
+
+set -e
+
+flock -w1 /tmp/fstrim-blocks /usr/bin/timeout 3600 /usr/bin/fstrim-blocks -t 600 -i 10 -b 1073741824

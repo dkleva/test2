@@ -1,0 +1,1 @@
+vm block-device-gpt sort-partnumbers bootloader cloud-init-datasources apt-sources stable-interface-names ubuntu ubuntu-xenial-vpc -t raw --mkfs-options -O ^metadata_csum -o /var/diskimage-builder/images/ubuntu-xenial-amd64-selectel-master-product-0.1

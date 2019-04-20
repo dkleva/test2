@@ -1,0 +1,33 @@
+TARGETS = watchdog uuidd lvm2-lvmetad lxcfs lvm2-lvmpolld open-vm-tools lxd unattended-upgrades postgresql irqbalance qemu-guest-agent atd mdadm resolvconf ntp ufw nginx plymouth urandom open-iscsi iscsid sendsigs rsyslog umountnfs.sh hwclock.sh networking umountfs cryptdisks cryptdisks-early umountroot mdadm-waitidle halt reboot
+uuidd: watchdog
+lvm2-lvmetad: watchdog
+lxcfs: watchdog
+lvm2-lvmpolld: watchdog
+open-vm-tools: watchdog
+lxd: watchdog
+unattended-upgrades: watchdog
+postgresql: watchdog
+irqbalance: watchdog
+qemu-guest-agent: watchdog
+atd: watchdog
+mdadm: watchdog
+resolvconf: watchdog
+ntp: watchdog
+ufw: watchdog
+nginx: watchdog
+plymouth: watchdog
+urandom: watchdog
+open-iscsi: watchdog
+iscsid: open-iscsi watchdog
+sendsigs: postgresql irqbalance qemu-guest-agent plymouth uuidd atd lxcfs iscsid open-vm-tools mdadm lxd open-iscsi unattended-upgrades nginx watchdog
+rsyslog: sendsigs postgresql irqbalance qemu-guest-agent atd mdadm ntp nginx watchdog
+umountnfs.sh: rsyslog postgresql irqbalance qemu-guest-agent plymouth uuidd atd lxcfs sendsigs open-vm-tools lxd unattended-upgrades nginx watchdog
+hwclock.sh: rsyslog postgresql uuidd atd watchdog
+networking: postgresql umountnfs.sh iscsid open-iscsi nginx watchdog
+umountfs: postgresql irqbalance qemu-guest-agent plymouth uuidd hwclock.sh atd urandom lvm2-lvmetad networking lxcfs umountnfs.sh lvm2-lvmpolld iscsid open-vm-tools mdadm lxd resolvconf open-iscsi unattended-upgrades nginx watchdog
+cryptdisks: umountfs watchdog
+cryptdisks-early: umountfs cryptdisks watchdog
+umountroot: umountfs cryptdisks-early cryptdisks watchdog
+mdadm-waitidle: umountroot watchdog
+halt: umountroot mdadm-waitidle watchdog
+reboot: umountroot mdadm-waitidle watchdog
